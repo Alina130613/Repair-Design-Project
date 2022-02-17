@@ -18,22 +18,23 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                      //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'astanko832';                        //SMTP username
+    $mail->Username   = 'astanko832gmail.com';                        //SMTP username
     $mail->Password   = 'F2n-iBN-dar-Uaw';                  //SMTP password
     $mail->SMTPSecure = 'ssl';                             //Enable implicit TLS encryption
-    $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`   
 
     //Recipients
-    $mail->setFrom('astanko832', 'Alina');
-    $mail->addAddress('astanko833');     //Add a recipient
-
+    $mail->setFrom('astanko832@gmail.com', 'Alina');
+    $mail->addAddress('stankoa832@gmail.com');     //Add a recipient  
+    
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Новая заявка сайта';
-    $mail->Body    = "Имя пользователя: ${userName}, его телефон: ${userPhone}. Его почта: ${userEmail}";
-
+    $mail->Body    = "Имя пользователя: ${uername}, его телефон: ${userPhone}. Его почта: ${userEmail}";
     $mail->send();
-    header('Location: thanks.html')
-}   catch (Exception $e) {
-    echo "Сообщение не отправленно, есть ошибка. Код ошибки: {$mail->ErrorInfo}";
+
+    header('Location: thanks.html');
+} catch (Exception $e) {
+    echo "Письмо не отправлено, есть ошибка. Код ошибки: {$mail->ErrorInfo}";
 }
+?>
